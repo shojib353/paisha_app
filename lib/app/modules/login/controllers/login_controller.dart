@@ -3,10 +3,8 @@ import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   // Text editing controllers
-
-  final emailOrPhoneController = TextEditingController();
-  final passwordController = TextEditingController();
-
+  late final TextEditingController emailOrPhoneController;
+  late final TextEditingController passwordController;
 
   // Observable variables
   final isPasswordVisible = false.obs;
@@ -15,11 +13,12 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    emailOrPhoneController = TextEditingController();
+    passwordController = TextEditingController();
   }
 
   @override
   void onClose() {
-
     emailOrPhoneController.dispose();
     passwordController.dispose();
     super.onClose();
@@ -30,10 +29,7 @@ class LoginController extends GetxController {
     isPasswordVisible.value = !isPasswordVisible.value;
   }
 
-
   // Validate form
-
-
   String? validateEmailOrPhone(String? value) {
     if (value == null || value.isEmpty) {
       return 'ইমেইল বা মোবাইল নম্বর লিখুন';
@@ -51,13 +47,10 @@ class LoginController extends GetxController {
     return null;
   }
 
-
-
-  // Registration method
+  // Login method
   Future<void> login() async {
-    if (
-        emailOrPhoneController.text.isEmpty ||
-        passwordController.text.isEmpty ) {
+    if (emailOrPhoneController.text.isEmpty ||
+        passwordController.text.isEmpty) {
       Get.snackbar(
         'ত্রুটি',
         'সকল তথ্য পূরণ করুন',
@@ -68,7 +61,6 @@ class LoginController extends GetxController {
       return;
     }
 
-
     isLoading.value = true;
 
     // Simulate API call
@@ -78,21 +70,15 @@ class LoginController extends GetxController {
 
     Get.snackbar(
       'সফল',
-      '',
+      'লগইন সফল হয়েছে',
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.green,
       colorText: Colors.white,
     );
 
-    // Navigate to next screen or clear form
-    Get.offAllNamed('/home');
-    clearForm();
+    // Navigate to next screen
+    Get.offAllNamed('/root');
   }
 
-  // Clear form
-  void clearForm() {
-    emailOrPhoneController.clear();
-    passwordController.clear();
 
-  }
 }

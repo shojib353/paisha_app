@@ -135,7 +135,7 @@ class LoginView extends GetView<LoginController> {
 
                 const SizedBox(height: 32),
 
-                // Register Button
+                // Login Button
                 Obx(() => SizedBox(
                   height: 50,
                   child: ElevatedButton(

@@ -8,7 +8,7 @@ class AppColorScheme {
     primary: Color(0xFF31B3B5),
     onPrimary: Colors.white,
 
-    secondary: Color(0xFF2196F3),
+    secondary: Color(0xFFF4F6F9),
     onSecondary: Colors.white,
 
     background: Color(0xFFF8FAFA),
@@ -28,7 +28,7 @@ class AppColorScheme {
     primary: Color(0xFF31B3B5),
     onPrimary: Colors.black,
 
-    secondary: Color(0xFF64B5F6),
+    secondary: Color(0xFFF4F6F9),
     onSecondary: Colors.black,
 
     background: Color(0xFF121212),
